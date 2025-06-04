@@ -1,0 +1,16 @@
+name: Test React App
+on: push # сработка на push 
+jobs:
+  # название задачи
+  test:
+  # на какой машине/сервере с какой ОС запускается данный workflow 
+    runs-on: ubuntu-latest
+    steps:
+      # название текущего шага
+      - name: Get source code from GitHub
+      # uses - использование workflow, который находиться на GitHub Marketplace
+        uses: actions/checkout@v4 # получаем код из репозитория GitHub на наш сервер
+      - name: Install dependencies
+        run: npm install # ну лучше использовать npm ci - так более корректная установка идет
+      - name: Run tests
+        run: npm run test
