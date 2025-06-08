@@ -1,6 +1,7 @@
 name: Deploy React App
 on: push # сработка на push 
 jobs:
+  # задачи запускаются параллельно и не зависят друг от друга
   # название задачи
   test:
   # на какой машине/сервере с какой ОС запускается данный workflow 
@@ -16,6 +17,8 @@ jobs:
         run: npm run test
   lint:
     runs-on: ubuntu-latest
+    # указали зависимость от задачи тестирования (т.е. мы запускаем задачу линтинга только если все тесты прошли успешно)
+    needs: test
     steps:
       - name: Get source code from GitHub
         uses: actions/checkout@v4 
@@ -25,6 +28,7 @@ jobs:
         run: npm run lint
   build:
     runs-on: ubuntu-latest
+    needs: lint
     steps:
       - name: Get source code from GitHub
         uses: actions/checkout@v4 
