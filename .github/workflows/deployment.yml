@@ -1,4 +1,4 @@
-name: Test React App
+name: Deploy React App
 on: push # сработка на push 
 jobs:
   # название задачи
@@ -14,3 +14,24 @@ jobs:
         run: npm install # ну лучше использовать npm ci - так более корректная установка идет
       - name: Run tests
         run: npm run test
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get source code from GitHub
+        uses: actions/checkout@v4 
+      - name: Install dependencies
+        run: npm install 
+      - name: Liny application
+        run: npm run lint
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get source code from GitHub
+        uses: actions/checkout@v4 
+      - name: Install dependencies
+        run: npm install 
+      - name: Build application
+        run: npm run build
+      - name: Deploy
+        run: echo Deploying...
+  
