@@ -6,8 +6,8 @@ on:
     branches:
       - 'main'
     # игнорирование любых изменений по заданному пути
-    # paths-ignore:
-    #   - './github/workflows/*'
+    paths-ignore:
+      - './github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
