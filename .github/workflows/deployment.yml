@@ -1,0 +1,22 @@
+name: Deploy React App
+on: 
+  # фильтрация по веткам - сработает когда что то зальем в ветку main
+  push:
+    branches:
+      - 'main'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get source code from GitHub
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm run test
+      - name: Liny application
+        run: npm run lint
+      - name: Build application
+        run: npm run build
+      - name: Deploy
+        run: echo Deploying...
