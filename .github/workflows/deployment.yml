@@ -1,9 +1,13 @@
 name: Deploy React App
 on: 
-  # фильтрация по веткам - сработает когда что то зальем в ветку main
+  # фильтрация 
   push:
+    # список веток для которых будут выполняться действия
     branches:
       - 'main'
+    # игнорирование любых изменений по заданному пути
+    paths-ignore:
+      - './github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
