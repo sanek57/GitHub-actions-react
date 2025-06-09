@@ -1,7 +1,7 @@
 name: Deploy React App
 on: push
 jobs:
-  # оптимизация выполнения списка задач из файла workflows/deploument.yml
+  # оптимизация выполнения списка задач из файла ./deploument-steps.yml
   # с соблюдением порядка выполнения задач
   # такой подход позволяет быстрее выполнять задачи т
   # не будет постоянного получения кода и установки необходимых зависимостей
@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get source code from GitHub
-        uses: actions/checkout@v4 
+        uses: actions/checkout@v4
       - name: Install dependencies
-        run: npm install 
+        run: npm install
       - name: Run tests
         run: npm run test
       - name: Liny application
@@ -20,4 +20,3 @@ jobs:
         run: npm run build
       - name: Deploy
         run: echo Deploying...
- 
