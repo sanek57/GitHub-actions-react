@@ -9,10 +9,7 @@ jobs:
       - name: Cache dependencies
         uses: actions/cache@v4
         with: 
-          path: ~/.npm # данный путь фиксирован для всех ubuntu-машин
-          # ключ валидности хэша
-          # лучше делать динамический ключ в зависимости от версий package-lock.json (где указаны версии установленных пакетов)
-          # данный кэш один для всех job внутри одного WF
+          path: ~/.npm 
           key: node_modules-${{ hashFiles('**/package-lock.json') }} 
       - name: Install dependencies
         run: npm install
