@@ -10,7 +10,7 @@ jobs:
         run: npm install
       - name: Build project
         run: npm run build
-        # создаем артифакты для дальнейшего использования
+        # создаем артефакты для дальнейшего использования
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
