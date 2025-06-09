@@ -7,7 +7,7 @@ on:
       - 'main'
     # игнорирование любых изменений по заданному пути
     paths-ignore:
-      - './github/workflows/*'
+      - '.github/workflows/*'
 jobs:
   deploy:
     runs-on: ubuntu-latest
